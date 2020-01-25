@@ -14,3 +14,9 @@
 .gitignore
 
 node_modules
+
+# not necessary files
+config.toml
+config.toml.enc
+config.toml.sample
+env.yaml
