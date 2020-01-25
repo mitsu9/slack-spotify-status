@@ -1,0 +1,10 @@
+[Slack]
+  Emoji = ":musical_note:"
+  access_token = ""
+
+[Spotify]
+  client_id = ""
+  client_secret = ""
+  authorization_code = ""
+  access_token = "" // Optional
+  refresh_token = "" // Optional
