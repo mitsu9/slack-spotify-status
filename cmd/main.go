@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/mitsu9/slack-spotify-status"
+	"github.com/mitsu9/slack-spotify-status/internal"
 )
 
 func main() {
-	config, err := GetConfigFromToml()
+	config, err := internal.GetConfigFromToml()
 	//config, err := GetConfigFromGCP()
 
 	if err != nil {
@@ -15,21 +15,21 @@ func main() {
 		return
 	}
 
-	title, artist, err := GetNowListening(&config.Spotify)
+	title, artist, err := internal.GetNowListening(&config.Spotify)
 
 	text := "Now playing: " + title + " by " + artist
 	if err != nil || title == "" || artist == "" {
 		text = "Not Playing"
 	}
 
-	if err := UpdateStatus(text, config.Slack); err != nil {
+	if err := internal.UpdateStatus(text, config.Slack); err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println("Updated status with text: " + text)
 
-	if err := SaveConfigToToml(config); err != nil {
-	//if err := SaveConfigToGCP(config); err != nil {
+	if err := internal.SaveConfigToToml(config); err != nil {
+		//if err := SaveConfigToGCP(config); err != nil {
 		fmt.Println(err)
 		return
 	}
