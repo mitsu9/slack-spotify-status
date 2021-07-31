@@ -10,8 +10,7 @@ Spotifyのaccess_token, refresh_tokenは初回実行時に取得することも�
 
 ## ローカルで動かす
 ```
-$ go build
-$ ./slack-spotify-status
+$ go run cmd/main.go
 ```
 
 ## GCPで動かす
